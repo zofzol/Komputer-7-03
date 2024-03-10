@@ -2,6 +2,7 @@
 {
     partial class Form3
     {
+        public event Action<string> Form3DataReady;
         /// <summary>
         /// Required designer variable.
         /// </summary>

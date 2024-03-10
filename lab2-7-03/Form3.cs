@@ -33,7 +33,9 @@ namespace lab2_7_03
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            string monitorPrice = textBox1.Text;
+            Form3DataReady?.Invoke(monitorPrice);
+            this.Close();
         }
     }
 }
