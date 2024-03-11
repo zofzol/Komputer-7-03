@@ -12,19 +12,20 @@ namespace lab2_7_03
 {
     public partial class Form2 : Form
     {
-        private List<int> list = new List<int>();
-
-        public Form1 Form1 { get; }
-
+        Form1 parent;
+        double proc_price = 0;
+        double drive_price = 0;
         public Form2()
         {
             InitializeComponent();
         }
 
-        public Form2(Form1 form1)
+        public Form2(Form1 parent)
         {
             InitializeComponent();
-            Form1 = form1;
+            this.parent = parent;
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -39,9 +40,10 @@ namespace lab2_7_03
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            
-                textBox2.Text = "1000";
-            
+
+            textBox2.Text = "1000";
+            drive_price = 1000;
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -56,7 +58,9 @@ namespace lab2_7_03
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
+            parent.SetTextBox1Text((proc_price + drive_price + parent.monitor_price).ToString());
+            parent.computer_price = proc_price + drive_price;
         }
 
         private void KOMPUTER_Click(object sender, EventArgs e)
@@ -74,15 +78,23 @@ namespace lab2_7_03
             {
                 case 0: // Option 1
                     textBox1.Text = "250";
+                    proc_price = 250;
+
                     break;
                 case 1: // Option 2
                     textBox1.Text = "500";
+                    proc_price = 500;
                     break;
                 case 2: // Option 3
                     textBox1.Text = "750";
+                    proc_price = 750;
                     break;
                 default:
-                    textbox1.Text = ""; // Clear text if no option is selected
+
+                    textBox1.Text = ""; // Clear text if no option is selected
+
+                    textBox1.Text = ""; // Clear text if no option is selected
+
                     break;
             }
         }
@@ -93,7 +105,7 @@ namespace lab2_7_03
         {
 
             textBox2.Text = "200";
-
+            proc_price = 200;
 
         }
 
@@ -115,7 +127,7 @@ namespace lab2_7_03
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             textBox2.Text = "500";
-
+            drive_price = 500;
         }
     }
 }

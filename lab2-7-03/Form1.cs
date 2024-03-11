@@ -4,9 +4,12 @@ namespace lab2_7_03
 {
     public partial class Form1 : Form
     {
+        public double computer_price = 0;
+        public double monitor_price = 0;
         public Form1()
         {
             InitializeComponent();
+            textBox1.ReadOnly = true;
         }
 
         private void Monitor_Click(object sender, EventArgs e)
@@ -22,8 +25,16 @@ namespace lab2_7_03
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        
+
+        }
+        public void SetTextBox1Text(string text)
+        {
+            textBox1.Text = text;
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
